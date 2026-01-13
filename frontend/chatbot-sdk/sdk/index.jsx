@@ -17,5 +17,4 @@ function initVetChatbot() {
 
 window.VetChatbot = { init: initVetChatbot };
 
-// auto-init
 initVetChatbot();

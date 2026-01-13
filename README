@@ -1,0 +1,338 @@
+
+---
+
+# Backend README (`backend/README.md`)
+
+## Vet Chatbot Backend
+
+This is the **backend (server)** for the Vet Chatbot.
+It is built using **Node.js, Express, and MongoDB**.
+
+The backend:
+
+* Handles chat messages
+* Stores appointments
+* Connects to MongoDB
+* Provides APIs for frontend and SDK
+
+---
+
+## Technologies Used
+
+* Node.js
+* Express.js
+* MongoDB (Mongoose)
+* dotenv
+* CORS
+
+---
+
+## Folder Structure
+
+```
+backend/
+│
+├── index.js
+├── .env
+├── package.json
+│
+└── src/
+    └── modules/
+        ├── chat/
+        │   ├── chat.controller.js
+        │   ├── chat.service.js
+        │   ├── chat.routes.js
+        │   └── chat.model.js
+        │
+        └── appointment/
+            ├── appointment.controller.js
+            ├── appointment.service.js
+            ├── appointment.routes.js
+            └── appointment.model.js
+```
+
+---
+
+## Setup Backend (Step by Step)
+
+### Go to backend folder
+
+```bash
+cd backend
+```
+
+### Install packages
+
+```bash
+npm install
+```
+
+### Create `.env` file
+
+Create a file named **`.env`** in backend folder.
+
+```env
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/vet_chatbot
+```
+
+---
+
+### Start backend server
+
+```bash
+npm run dev
+```
+
+You will see:
+
+```
+MongoDB connected
+Server running on port 5000
+```
+
+---
+
+## 🔍 Test Backend API
+
+### Health Check
+
+Open browser:
+
+```
+http://localhost:5000/health
+```
+
+Response:
+
+```json
+{
+  "status": "OK"
+}
+```
+
+---
+
+## API Routes
+
+### Chat API
+
+```
+POST /api/chat
+```
+
+### Appointment API
+
+```
+POST /api/appointments
+```
+
+---
+
+## Common Problems
+
+### MongoDB not connected
+
+* Check MongoDB is running
+* Check `MONGO_URI` in `.env`
+
+### Server not starting
+
+* Run `npm install`
+* Check Node version (v18+ recommended)
+
+---
+
+## Backend Ready
+
+Backend is now ready to use with frontend and SDK 🎉
+
+---
+
+---
+
+# Frontend README (`frontend/README.md`)
+
+## Vet Chatbot Frontend & SDK
+
+This is the **frontend UI and embeddable SDK** for Vet Chatbot.
+
+You can:
+
+* Run it as a normal React app
+* Build it as a **script SDK**
+* Use it on any website
+
+---
+
+## Technologies Used
+
+* React
+* Vite
+* Tailwind CSS
+* JavaScript
+* CDN (Vercel)
+
+---
+
+## Folder Structure
+
+```
+frontend/chatbot-sdk/
+│
+├── sdk/
+│   ├── index.jsx
+│   ├── App.jsx
+│   └── style.css
+│
+├── dist/
+│   ├── vet-chatbot-sdk.iife.js
+│   └── vet-chatbot-sdk.css
+│
+├── vite.sdk.config.js
+├── tailwind.config.js
+├── package.json
+└── README.md
+```
+
+---
+
+## Setup Frontend (Local)
+
+### Go to frontend folder
+
+```bash
+cd frontend/chatbot-sdk
+```
+
+### Install packages
+
+```bash
+npm install
+```
+
+### Start frontend
+
+```bash
+npm run dev
+```
+
+Open browser:
+
+```
+http://localhost:5173
+```
+
+---
+
+## Tailwind Setup (Already Done)
+
+Tailwind is already configured.
+If you see UI styled → Tailwind is working 
+
+---
+
+## Build SDK File
+
+### Build SDK
+
+```bash
+npm run build:sdk
+```
+
+### package.json script
+
+```json
+{
+  "scripts": {
+    "build:sdk": "vite build --config vite.sdk.config.js"
+  }
+}
+```
+
+After build:
+
+```
+dist/
+├── vet-chatbot-sdk.iife.js
+├── vet-chatbot-sdk.css
+```
+
+---
+
+## Use SDK on Any Website
+
+### Add CSS
+
+```html
+<link
+  rel="stylesheet"
+  href="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.css"
+/>
+```
+
+### Add Script
+
+```html
+<script src="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.iife.js"></script>
+```
+
+### Done
+
+Chatbot will appear automatically.
+
+---
+
+## Test SDK Locally
+
+Create `index.html`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SDK Test</title>
+    <link rel="stylesheet" href="./dist/vet-chatbot-sdk.css" />
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <script src="./dist/vet-chatbot-sdk.iife.js"></script>
+  </body>
+</html>
+```
+
+Open using Live Server.
+
+---
+
+## Common Errors & Fix
+
+### `process is not defined`
+
+✔ Fixed by building SDK using IIFE format
+
+### SDK not showing
+
+✔ Make sure **CSS is loaded**
+✔ Script URL is correct
+
+---
+
+## Frontend & SDK Ready
+
+Your chatbot can now be:
+
+* Embedded anywhere
+* Used as CDN
+* Scaled later
+
+---
+
+## Next Improvements (Optional)
+
+* API connection with backend
+* Custom theme options
+* Shadow DOM support
+* NPM package
+
+---

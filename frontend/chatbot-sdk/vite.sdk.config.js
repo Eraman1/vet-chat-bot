@@ -4,22 +4,21 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
 
-  // 🔥 VERY IMPORTANT FOR SDK
   define: {
     "process.env.NODE_ENV": '"production"',
-    process: {}, // <-- fixes "process is not defined"
+    process: {}, 
   },
 
   build: {
     lib: {
       entry: "sdk/index.jsx",
-      name: "VetChatbot", // window.VetChatbot
+      name: "VetChatbot", 
       fileName: "vet-chatbot-sdk",
-      formats: ["iife"], // embeddable <script>
+      formats: ["iife"], 
     },
 
     rollupOptions: {
-      // ⚠️ DO NOT externalize react for SDK
+      
       external: [],
     },
 
