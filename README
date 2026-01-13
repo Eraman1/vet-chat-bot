@@ -1,20 +1,24 @@
-# Backend README (`backend/README.md`)
+# Vet Chatbot Project (Backend + Frontend SDK)
 
-## Vet Chatbot Backend
-
-This is the **backend (server)** for the Vet Chatbot.
-It is built using **Node.js, Express, and MongoDB**.
-
-The backend:
-
-- Handles chat messages
-- Stores appointments
-- Connects to MongoDB
-- Provides APIs for frontend and SDK
+This project contains the backend server and the frontend embeddable SDK
+for the Vet Chatbot.
 
 ---
 
-## Technologies Used
+## BACKEND
+
+Backend is built using Node.js, Express, and MongoDB.
+
+Backend responsibilities:
+
+- Handle chat messages
+- Handle appointments
+- Connect to MongoDB
+- Provide APIs for frontend and SDK
+
+---
+
+## BACKEND TECHNOLOGIES
 
 - Node.js
 - Express.js
@@ -24,267 +28,180 @@ The backend:
 
 ---
 
-## Folder Structure
+## BACKEND FOLDER STRUCTURE
 
-```
 backend/
-│
-├── index.js
-├── .env
-├── package.json
-│
-└── src/
-    └── modules/
-        ├── chat/
-        │   ├── chat.controller.js
-        │   ├── chat.service.js
-        │   ├── chat.routes.js
-        │   └── chat.model.js
-        │
-        └── appointment/
-            ├── appointment.controller.js
-            ├── appointment.service.js
-            ├── appointment.routes.js
-            └── appointment.model.js
-```
+|
+|-- index.js
+|-- package.json
+|-- .env
+|
+|-- src/
+|-- modules/
+|-- chat/
+| |-- chat.controller.js
+| |-- chat.service.js
+| |-- chat.routes.js
+| |-- chat.model.js
+|
+|-- appointment/
+|-- appointment.controller.js
+|-- appointment.service.js
+|-- appointment.routes.js
+|-- appointment.model.js
 
 ---
 
-## Setup Backend (Step by Step)
+## BACKEND SETUP
 
-### Go to backend folder
+Step 1: Go to backend folder
 
-```bash
 cd backend
-```
 
-### Install packages
+Step 2: Install dependencies
 
-```bash
 npm install
-```
 
-### Create `.env` file
+Step 3: Create .env file
 
-Create a file named **`.env`** in backend folder.
-
-```env
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/vet_chatbot
-```
 
----
+Step 4: Start server
 
-### Start backend server
-
-```bash
 npm run dev
-```
 
-You will see:
+Server will start on:
 
-```
-MongoDB connected
-Server running on port 5000
-```
+http://localhost:5000
 
 ---
 
-## 🔍 Test Backend API
+## BACKEND TEST
 
-### Health Check
+Health check URL:
 
-Open browser:
-
-```
 http://localhost:5000/health
-```
 
 Response:
 
-```json
 {
-  "status": "OK"
+"status": "OK"
 }
-```
 
 ---
 
-## API Routes
+## API ROUTES
 
-### Chat API
-
-```
-POST /api/chat
-```
-
-### Appointment API
-
-```
+POST /api/chat  
 POST /api/appointments
-```
 
 ---
 
-## Common Problems
+## COMMON BACKEND ISSUES
 
-### MongoDB not connected
+MongoDB not connected:
 
-- Check MongoDB is running
-- Check `MONGO_URI` in `.env`
+- Make sure MongoDB is running
+- Check MONGO_URI in .env
 
-### Server not starting
+Server not starting:
 
-- Run `npm install`
-- Check Node version (v18+ recommended)
-
----
-
-## Backend Ready
-
-Backend is now ready to use with frontend and SDK 🎉
+- Run npm install
+- Use Node version 18 or above
 
 ---
 
----
+## FRONTEND + SDK
 
-# Frontend README (`frontend/README.md`)
+Frontend is a React application that can also be built as an embeddable SDK.
 
-## Vet Chatbot Frontend & SDK
-
-This is the **frontend UI and embeddable SDK** for Vet Chatbot.
-
-You can:
-
-- Run it as a normal React app
-- Build it as a **script SDK**
-- Use it on any website
+SDK can be used on any website using a script tag.
 
 ---
 
-## Technologies Used
+## FRONTEND TECHNOLOGIES
 
 - React
 - Vite
 - Tailwind CSS
 - JavaScript
-- CDN (Vercel)
 
 ---
 
-## Folder Structure
+## FRONTEND FOLDER STRUCTURE
 
-```
 frontend/chatbot-sdk/
-│
-├── sdk/
-│   ├── index.jsx
-│   ├── App.jsx
-│   └── style.css
-│
-├── dist/
-│   ├── vet-chatbot-sdk.iife.js
-│   └── vet-chatbot-sdk.css
-│
-├── vite.sdk.config.js
-├── tailwind.config.js
-├── package.json
-└── README.md
-```
+|
+|-- sdk/
+| |-- index.jsx
+| |-- App.jsx
+| |-- style.css
+|
+|-- dist/
+| |-- vet-chatbot-sdk.iife.js
+| |-- vet-chatbot-sdk.css
+|
+|-- vite.sdk.config.js
+|-- tailwind.config.js
+|-- package.json
 
 ---
 
-## Setup Frontend (Local)
+## FRONTEND SETUP
 
-### Go to frontend folder
+Step 1: Go to frontend folder
 
-```bash
 cd frontend/chatbot-sdk
-```
 
-### Install packages
+Step 2: Install dependencies
 
-```bash
 npm install
-```
 
-### Start frontend
+Step 3: Run frontend locally
 
-```bash
 npm run dev
-```
 
 Open browser:
 
-```
 http://localhost:5173
-```
 
 ---
 
-## Tailwind Setup (Already Done)
+## BUILD SDK
 
-Tailwind is already configured.
-If you see UI styled → Tailwind is working
+Command to build SDK:
 
----
-
-## Build SDK File
-
-### Build SDK
-
-```bash
 npm run build:sdk
-```
 
-### package.json script
+package.json script:
 
-```json
-{
-  "scripts": {
-    "build:sdk": "vite build --config vite.sdk.config.js"
-  }
+"scripts": {
+"build:sdk": "vite build --config vite.sdk.config.js"
 }
-```
 
-After build:
-
-```
-dist/
-├── vet-chatbot-sdk.iife.js
-├── vet-chatbot-sdk.css
-```
+After build, files will be generated in dist folder.
 
 ---
 
-## Use SDK on Any Website
+## USE SDK ON ANY WEBSITE
 
-### Add CSS
+Add CSS:
 
-```html
-<link
-  rel="stylesheet"
-  href="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.css"
-/>
-```
+<link rel="stylesheet" href="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.css" />
 
-### Add Script
+Add Script:
 
-```html
 <script src="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.iife.js"></script>
-```
 
-### Done
-
-Chatbot will appear automatically.
+Chatbot will load automatically.
 
 ---
 
-## Test SDK Locally
+## LOCAL SDK TEST
 
-Create `index.html`:
+Create index.html:
 
-```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -296,38 +213,27 @@ Create `index.html`:
     <script src="./dist/vet-chatbot-sdk.iife.js"></script>
   </body>
 </html>
-```
 
-Open using Live Server.
-
----
-
-## Common Errors & Fix
-
-### `process is not defined`
-
-✔ Fixed by building SDK using IIFE format
-
-### SDK not showing
-
-✔ Make sure **CSS is loaded**
-✔ Script URL is correct
+Open with Live Server.
 
 ---
 
-## Frontend & SDK Ready
+## COMMON SDK ISSUES
 
-Your chatbot can now be:
+process is not defined:
 
-- Embedded anywhere
-- Used as CDN
-- Scaled later
+- Fixed by using IIFE build format
+
+SDK not visible:
+
+- Make sure CSS file is loaded
+- Make sure script URL is correct
 
 ---
 
-## Next Improvements (Optional)
+## PROJECT STATUS
 
-- API connection with backend
-- Custom theme options
-- Shadow DOM support
-- NPM package
+Backend working  
+Frontend working  
+SDK working  
+Ready for deployment and embedding
