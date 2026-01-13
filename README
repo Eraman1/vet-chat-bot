@@ -1,6 +1,3 @@
-
----
-
 # Backend README (`backend/README.md`)
 
 ## Vet Chatbot Backend
@@ -10,20 +7,20 @@ It is built using **Node.js, Express, and MongoDB**.
 
 The backend:
 
-* Handles chat messages
-* Stores appointments
-* Connects to MongoDB
-* Provides APIs for frontend and SDK
+- Handles chat messages
+- Stores appointments
+- Connects to MongoDB
+- Provides APIs for frontend and SDK
 
 ---
 
 ## Technologies Used
 
-* Node.js
-* Express.js
-* MongoDB (Mongoose)
-* dotenv
-* CORS
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- dotenv
+- CORS
 
 ---
 
@@ -133,13 +130,13 @@ POST /api/appointments
 
 ### MongoDB not connected
 
-* Check MongoDB is running
-* Check `MONGO_URI` in `.env`
+- Check MongoDB is running
+- Check `MONGO_URI` in `.env`
 
 ### Server not starting
 
-* Run `npm install`
-* Check Node version (v18+ recommended)
+- Run `npm install`
+- Check Node version (v18+ recommended)
 
 ---
 
@@ -159,19 +156,19 @@ This is the **frontend UI and embeddable SDK** for Vet Chatbot.
 
 You can:
 
-* Run it as a normal React app
-* Build it as a **script SDK**
-* Use it on any website
+- Run it as a normal React app
+- Build it as a **script SDK**
+- Use it on any website
 
 ---
 
 ## Technologies Used
 
-* React
-* Vite
-* Tailwind CSS
-* JavaScript
-* CDN (Vercel)
+- React
+- Vite
+- Tailwind CSS
+- JavaScript
+- CDN (Vercel)
 
 ---
 
@@ -228,7 +225,7 @@ http://localhost:5173
 ## Tailwind Setup (Already Done)
 
 Tailwind is already configured.
-If you see UI styled → Tailwind is working 
+If you see UI styled → Tailwind is working
 
 ---
 
@@ -322,17 +319,15 @@ Open using Live Server.
 
 Your chatbot can now be:
 
-* Embedded anywhere
-* Used as CDN
-* Scaled later
+- Embedded anywhere
+- Used as CDN
+- Scaled later
 
 ---
 
 ## Next Improvements (Optional)
 
-* API connection with backend
-* Custom theme options
-* Shadow DOM support
-* NPM package
-
----
+- API connection with backend
+- Custom theme options
+- Shadow DOM support
+- NPM package
