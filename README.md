@@ -48,7 +48,9 @@ Create a `.env` file:
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/vet_chatbot
+MONGO_URI=db_url
+GEMINI_API_KEY=your_google_gemini_key
+
 ```
 
 Start the server:
