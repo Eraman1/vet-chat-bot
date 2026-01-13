@@ -18,8 +18,6 @@ The backend is built using Node.js, Express, and MongoDB.
 
 ### Folder Structure
 
-```
-
 backend/
 ├── index.js
 ├── package.json
@@ -27,70 +25,42 @@ backend/
 └── src/
 └── modules/
 ├── chat/
-│   ├── chat.controller.js
-│   ├── chat.service.js
-│   ├── chat.routes.js
-│   └── chat.model.js
+│ ├── chat.controller.js
+│ ├── chat.service.js
+│ ├── chat.routes.js
+│ └── chat.model.js
 └── appointment/
 ├── appointment.controller.js
 ├── appointment.service.js
 ├── appointment.routes.js
 └── appointment.model.js
 
-```
-
 ### Setup
 
-```
-
-cd backend
+cd backend  
 npm install
 
-```
+Create a .env file:
 
-Create a `.env` file:
-
-```
-
-PORT=5000
+PORT=5000  
 MONGO_URI=mongodb://127.0.0.1:27017/vet_chatbot
-
-```
 
 Start the server:
 
-```
-
 npm run dev
-
-```
 
 ### Test
 
-Open:
-
-```
-
-[http://localhost:5000/health](http://localhost:5000/health)
-
-```
+http://localhost:5000/health
 
 Response:
 
-```
-
 {"status":"OK"}
-
-```
 
 ### API Routes
 
-```
-
-POST /api/chat
+POST /api/chat  
 POST /api/appointments
-
-```
 
 ---
 
@@ -107,69 +77,45 @@ The frontend is a React app that can also be built as an embeddable SDK.
 
 ### Folder Structure
 
-```
-
 frontend/chatbot-sdk/
 ├── sdk/
-│   ├── index.jsx
-│   ├── App.jsx
-│   └── style.css
+│ ├── index.jsx
+│ ├── App.jsx
+│ └── style.css
 ├── dist/
-│   ├── vet-chatbot-sdk.iife.js
-│   └── vet-chatbot-sdk.css
+│ ├── vet-chatbot-sdk.iife.js
+│ └── vet-chatbot-sdk.css
 ├── vite.sdk.config.js
 ├── tailwind.config.js
 └── package.json
 
-```
-
 ### Setup
 
-```
-
-cd frontend/chatbot-sdk
-npm install
+cd frontend/chatbot-sdk  
+npm install  
 npm run dev
-
-```
 
 Open:
 
-```
-
-[http://localhost:5173](http://localhost:5173)
-
-```
+http://localhost:5173
 
 ### Build SDK
 
-```
-
 npm run build:sdk
 
-```
-
 Generated files:
-
-```
 
 dist/
 ├── vet-chatbot-sdk.iife.js
 ├── vet-chatbot-sdk.css
 
-```
-
 ### Use SDK
 
-```
-
-<link rel="stylesheet" href="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.css">
+<link rel="stylesheet" href="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.css">  
 <script src="https://vet-chat-bot-liard.vercel.app/vet-chatbot-sdk.iife.js"></script>
-```
 
 ### Local SDK Test
 
-```
 <!DOCTYPE html>
 <html>
   <head>
@@ -181,17 +127,12 @@ dist/
     <script src="./dist/vet-chatbot-sdk.iife.js"></script>
   </body>
 </html>
-```
 
 ---
 
 ## Status
 
-Backend working
-Frontend working
-SDK working
+Backend working  
+Frontend working  
+SDK working  
 Ready for deployment
-
-```
-
-```
