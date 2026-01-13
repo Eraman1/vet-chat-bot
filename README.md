@@ -166,5 +166,3 @@ Backend working
 Frontend working
 SDK working
 Ready for deployment
-
-```
