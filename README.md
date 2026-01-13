@@ -1,15 +1,3 @@
-Good, ab clear ho gaya problem **kyon folders ek line me aa rahe hain**.
-Reason simple hai:
-
-👉 **Folder structure aur HTML code Markdown code block (` ``` `) ke andar nahi hai**, isliye GitHub usko normal text ki tarah render kar raha hai.
-
-Neeche **FINAL, CORRECT, GITHUB-READY README.md** de raha hoon.
-Isko **POORA KA POORA COPY–PASTE** karo **README.md** file me.
-**Ek bhi backtick kam–zyada mat karna.**
-
----
-
-````md
 # Vet Chatbot Project
 
 This repository contains the backend server and the frontend embeddable SDK for the Vet Chatbot.
