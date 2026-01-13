@@ -1,8 +1,9 @@
 import { useState } from "react";
-
+import { Stethoscope } from "lucide-react";
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 export default function ChatWindow({ onClose }) {
   const [messages, setMessages] = useState([
-    { role: "bot", text: "Hello! How can I help your pet today? 🐾" },
+    { role: "bot", text: "Hello! How can I help your pet today?" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -16,12 +17,12 @@ export default function ChatWindow({ onClose }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/chat", {
+      console.log(`${BASE_URL}/api/chat`);
+      const res = await fetch(`${BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
       });
-
       const data = await res.json();
 
       setMessages((prev) => [
@@ -29,9 +30,10 @@ export default function ChatWindow({ onClose }) {
         { role: "bot", text: data.reply || "No response from server" },
       ]);
     } catch (error) {
+      console.log(error);
       setMessages((prev) => [
         ...prev,
-        { role: "bot", text: "⚠️ Server error. Please try again." },
+        { role: "bot", text: "Server error. Please try again." },
       ]);
     } finally {
       setLoading(false);
@@ -40,13 +42,14 @@ export default function ChatWindow({ onClose }) {
 
   return (
     <div className="fixed bottom-24 right-6 w-80 h-[420px] bg-white rounded-xl shadow-xl flex flex-col overflow-hidden">
-      {/* Header */}
       <div className="bg-emerald-500 text-white px-4 py-3 flex justify-between">
-        <span className="font-semibold">Vet Assistant 🐶</span>
+        <span className="font-semibold flex items-center gap-2">
+          <Stethoscope size={18} />
+          Vet Assistant
+        </span>
         <button onClick={onClose}>✖</button>
       </div>
 
-      {/* Messages */}
       <div className="flex-1 p-3 space-y-2 overflow-y-auto text-sm">
         {messages.map((msg, i) => (
           <div
@@ -66,7 +69,6 @@ export default function ChatWindow({ onClose }) {
         )}
       </div>
 
-      {/* Input */}
       <div className="p-2 border-t flex gap-2">
         <input
           value={input}
